@@ -21,22 +21,9 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpg|png|gif|svg)$/i,
+        test: /\.(png|jpg)$/,
         use: [
-            'file-loader?context=client/src/images/side/[path][name].[ext]',
-            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
-      },
-      {
-        test: /\.html$/,
-        use: [
-          'html-loader?attrs[]=video:src',
-        ]
-      },
-      {
-        test: /\.mp4$/,
-        use: [
-          'file-loader',
+            'url-loader?limit=200000',
         ]
       },
       {
