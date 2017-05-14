@@ -1,0 +1,8 @@
+/node_modules
+/client/src/test.mov
+/client/src/test.mp4
+.gitignore
+/client/src/containers/images
+/client/src/containers/images.zip
+/client/public/
+npm-debug.log
