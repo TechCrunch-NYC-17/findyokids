@@ -15,12 +15,28 @@ class App extends Component {
   componentDidMount() {
     axios.get('/images')
       .then((data) => {
-        this.setState( 
+        this.setState(
           {
           front: data.data.front,
           side: data.data.side
         })
       })
+  }
+
+  sendText () {
+    let api_key = dab5bbc0;
+    let api_secret = 7008ac711dd75f08;
+    let to = 19739028359;        //can only send it to these numbers 19739028359, 15162366339, 16467449919 ... have to register more
+    let from = 12028525488;
+    let text = "Missing person: Sean Ho";
+
+    axios.post(`https://rest.nexmo.com/sms/json?api_key=${api_key}&api_secret=${api_secret}&to=${to}&from=${from}&text=${text}`)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   images() {
@@ -36,14 +52,14 @@ class App extends Component {
            })
       return (
         <div>
-          <img width='400' height='400' src={'/front/' + val} /> 
+          <img width='400' height='400' src={'/front/' + val} />
         </div>
       )
     });
   }
-  
-  
-  render() {  
+
+
+  render() {
     return (
       <div>
         <center>
